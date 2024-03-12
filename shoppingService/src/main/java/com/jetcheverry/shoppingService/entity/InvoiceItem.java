@@ -1,5 +1,6 @@
 package com.jetcheverry.shoppingService.entity;
 
+import com.jetcheverry.shoppingService.model.Product;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.Data;
@@ -22,6 +23,8 @@ public class InvoiceItem  {
     @Transient
     private Double subTotal;
 
+    @Transient
+    private Product product;
     public Double getSubTotal(){
         if (this.price >0  && this.quantity >0 ){
             return this.quantity * this.price;

@@ -1,5 +1,6 @@
 package com.jetcheverry.shoppingService.entity;
 
+import com.jetcheverry.shoppingService.model.Customer;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.Data;
@@ -13,7 +14,6 @@ import java.util.List;
 @Entity
 @Table(name = "tlb_invoices")
 public class Invoice {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +38,9 @@ public class Invoice {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "invoice_id")
     private List<InvoiceItem> items;
+
+    @Transient
+    private Customer customer;
 
     private String state;
 
