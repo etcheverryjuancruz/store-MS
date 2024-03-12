@@ -5,12 +5,12 @@ spring:
     config:
       server:
         git:
+          default-label: main
           uri: https://github.com/etcheverryjuancruz/store-MS.git
           searchPaths: config-data
           username: ${GIT_USER}
           password: ${GIT_PASSWORD}
-
-    security:
-      user:
-        name: root
-        password: s3cr3t
+  security:
+    user:
+      name: root
+      password: s3cr3t
