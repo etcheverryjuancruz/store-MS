@@ -18,12 +18,16 @@ spring:
           predicates:
             - Path=/customers/**
           filters:
-            - StripPrefix: 1
+            - StripPrefix= 1
         - id: product-service
           uri: lb://product-service
           predicates:
             - Path=/products/**
+          filters:
+            - StripPrefix= 1
         - id: shopping-service
           uri: lb://shopping-service
           predicates:
             - Path=/invoices/**
+          filters:
+            - StripPrefix= 1
