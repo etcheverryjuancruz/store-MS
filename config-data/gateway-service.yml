@@ -10,6 +10,7 @@ spring:
   cloud:
     gateway:
       discovery:
+        enabled: true
         locator:
           enabled: true
       routes:
@@ -17,10 +18,12 @@ spring:
           uri: lb://CUSTOMER-SERVICE
           predicates:
             - Path=/customers/**
+
         - id: product-service
           uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/products/**
+
         - id: shopping-service
           uri: lb://SHOPPING-SERVICE
           predicates:
